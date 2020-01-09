@@ -12,9 +12,13 @@ router.js里面的只是喂了点击找到对应的匹配页面，这个数组�
           <div class="item-li"><i class="icon" :class="item.active? `${item.icon}-active` : item.icon"></i>{{item.name}}</div>
         </router-link>
         <!-- 二级 -->
-        <div v-for="(itm, idx) in item.children" :key="idx" v-show="!item.hidden" @click="keepSatus(index, idx,2)">
-          <router-link :to="itm.path" tag="div" class="item-li item-children" :class="itm.active?'item-active':''" >{{itm.name}}</router-link>
+        <el-collapse-transition>
+          <div v-show="!item.hidden">
+            <div v-for="(itm, idx) in item.children" :key="idx" @click="keepSatus(index, idx,2)">
+              <router-link :to="itm.path" tag="div" class="item-li item-children" :class="itm.active?'item-active':''" >{{itm.name}}</router-link>
+            </div>
         </div>
+        </el-collapse-transition>
       </div>
     </div>
     <!-- 第二个路由适口 -->
@@ -38,11 +42,11 @@ export default {
           children: [
             {
               path: '/goods-manage/goods-list',
-              name: '商品列表',
+              name: '商品列表'
             },
             {
               path: '/goods-manage/goods-add',
-              name: '新增商品',
+              name: '新增商品'
             }
           ]
         },
@@ -53,31 +57,31 @@ export default {
           children: [
             {
               path: '/member-manage/member-list',
-              name: '会员列表',
+              name: '会员列表'
             },
             {
               path: '/member-manage/member-tag',
-              name: '会员标签',
+              name: '会员标签'
             }
           ]
         }
       ]
     }
   },
-  created() {
-    const fullPath = this.$route.fullPath.split("#")
+  created () {
+    const fullPath = this.$route.fullPath.split('#')
     this.selectItem(fullPath[0])
   },
   methods: {
     // 收起或者展开二级菜单
-    hiddenChange(index) {
+    hiddenChange (index) {
       this.$set(this.menuList[index], 'hidden', !this.menuList[index].hidden)
     },
     // 点击二级菜单选中状态
-    keepSatus(index, idx, tag) {
+    keepSatus (index, idx, tag) {
       this.menuList.map((item, index) => {
         this.$set(this.menuList[index], 'active', false)
-        item.children&&item.children.map((itm, idx) => {
+        item.children && item.children.map((itm, idx) => {
           this.$set(this.menuList[index].children[idx], 'active', false)
         })
       })
@@ -89,13 +93,13 @@ export default {
       }
     },
     // 刷新高亮
-    selectItem(fullPath) {
+    selectItem (fullPath) {
       this.menuList.forEach((item, index) => {
         if (!item.children && (fullPath === item.path)) {
           this.$set(this.menuList[index], 'active', true)
           return
         }
-        item.children&&item.children.forEach((itm, idx) => {
+        item.children && item.children.forEach((itm, idx) => {
           if (fullPath === itm.path) {
             this.$set(this.menuList[index], 'active', true)
             this.$set(this.menuList[index].children[idx], 'active', true)
