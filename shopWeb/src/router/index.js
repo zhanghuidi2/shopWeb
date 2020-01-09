@@ -43,6 +43,16 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('@/pages/errorPages/404.vue')
+    },
+    {
+      path: '/500',
+      name: '500',
+      component: () => import('@/pages/errorPages/500.vue')
     }
   ]
 })

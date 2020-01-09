@@ -6,7 +6,7 @@ router.js里面的只是喂了点击找到对应的匹配页面，这个数组�
       <div v-for="(item, index) in menuList" :key="index" class="label">
         <!-- 一级 -->
         <div v-if="item.children && item.children.length" class="item-li"  @click="hiddenChange(index)">
-          <i class="icon" :class="item.active? `${item.icon}-active` : item.icon"></i>{{item.name}}
+          <i class="icon" :class="item.active? `${item.icon}-active` : item.icon"></i>{{item.name}}<i :class="!item.hidden?'el-icon-arrow-up':'el-icon-arrow-down'" class="arrow"></i>
         </div>
         <router-link :to="item.path" tag="div" v-else @click.native="keepSatus(index,'',1)">
           <div class="item-li"><i class="icon" :class="item.active? `${item.icon}-active` : item.icon"></i>{{item.name}}</div>
@@ -121,6 +121,7 @@ export default {
     height: 100%;
     background: #001528;
     color: #fff;
+    font-size: 14px;
   }
   .label{
     display: flex;
@@ -133,9 +134,13 @@ export default {
     height: 40px;
     cursor: pointer;
   }
+  .item-li:hover{
+    color: #fe7865;
+    background: #000;
+  }
   .item-active {
-    color: #333;
-    background: #f2f2f2;
+    color: #fe7865;
+    /* background: #f2f2f2; */
   }
   .item-children{
     padding-left: 54px;
@@ -163,5 +168,9 @@ export default {
   }
    .member-active{
     background: url('../../assets/images/menu/member-active.png')
+  }
+  .arrow{
+    margin-left: 10px;
+    font-size: 14px;
   }
 </style>

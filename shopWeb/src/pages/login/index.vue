@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import api from './interface.js'
 export default {
   data () {
     return {
@@ -12,10 +13,15 @@ export default {
   },
   methods: {
     login () {
-      const loginMsg = {
-        userName: 'zhangsan'
+      const loginForm = {
+        account: '15788888888',
+        password: '15788888888',
+        captcha_code: '1111'
       }
-      localStorage.setItem('loginMsg', loginMsg)
+      api.login(loginForm).then(res=>{
+        console.log(res)
+      })
+      // localStorage.setItem('loginMsg', loginMsg)
       this.$router.push('/overview')
     }
   }
