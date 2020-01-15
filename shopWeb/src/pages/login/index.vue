@@ -20,7 +20,7 @@
   </div>
 </template>
 <script>
-// import api from './interface.js'
+import api from './interface.js'
 export default {
   data () {
     return {
@@ -32,9 +32,9 @@ export default {
   },
   methods: {
     login () {
-      // api.login(this.loginForm).then(res => {
-      //   console.log(res)
-      // })
+      api.login(this.loginForm).then(res => {
+        console.log(res)
+      })
       localStorage.setItem('loginMsg', this.loginForm)
       this.$router.push('/overview')
     }

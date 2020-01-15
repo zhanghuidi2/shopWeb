@@ -24,6 +24,7 @@ export default function request (options) {
     // 请求拦截器，可以开始发请求的时候增加loading
     axiosObj.interceptors.request.use((config) => {
       store.commit('CHANGE_LOADING', true)
+      console.log('ppp')
       return config
     }, error => {
       store.commit('CHANGE_LOADING', false)
@@ -31,7 +32,6 @@ export default function request (options) {
     })
     axiosObj(options).then((response) => {
       store.commit('CHANGE_LOADING', false)
-      console.log('000000000')
       switch (response.status) {
         case 200:
           resolve(response.data)
@@ -46,6 +46,7 @@ export default function request (options) {
           reject(response)
       }
     }).catch((error) => {
+      store.commit('CHANGE_LOADING', true)
       console.log(error)
     })
   })
