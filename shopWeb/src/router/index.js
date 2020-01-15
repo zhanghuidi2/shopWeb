@@ -36,7 +36,12 @@ const router = new Router({
             }
           ]
         },
-        member
+        member,
+        {
+          path: '/setting',
+          name: 'setting',
+          component: () => import('@/pages/setting/index')
+        },
       ]
     },
     {

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import '@/assets/css/common.css'
-  export default{
-    name: 'App'
-  }
+import '@/assets/css/common.css'
+export default{
+  name: 'App'
+}
 </script>

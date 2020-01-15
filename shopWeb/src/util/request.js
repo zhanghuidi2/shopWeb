@@ -1,11 +1,11 @@
 import axios from 'axios'
 import store from '@/store'
 import router from '../router'
-export default function request(options){
-const setting = {
+export default function request (options) {
+  const setting = {
     loading: true, // 默认加载loading
     contentType: 'application/json;charset=UTF-8',
-    format: false // 是否qs序列化 
+    format: false // 是否qs序列化
   }
   options = {...setting, ...options}
   console.log(process.env.BASE_API)
@@ -15,9 +15,9 @@ const setting = {
       baseURL: `${process.env.BASE_API}${options.url}`,
       headers: {
         'Authorization': '',
-        'AppId' : '',
+        'AppId': '',
         'Accept': '',
-        'Content-Type': options.contentType,
+        'Content-Type': options.contentType
         // 'userLoginId': JSON.parse(localStorage.getItem('loginMsg')) ? JSON.parse(localStorage.getItem('loginMsg')).userLoginId : ''
       }
     })
@@ -33,7 +33,7 @@ const setting = {
       store.commit('CHANGE_LOADING', false)
       console.log('000000000')
       switch (response.status) {
-        case 200: 
+        case 200:
           resolve(response.data)
           break
         case 404:
@@ -45,7 +45,7 @@ const setting = {
         default:
           reject(response)
       }
-    }).catch((error)=>{
+    }).catch((error) => {
       console.log(error)
     })
   })

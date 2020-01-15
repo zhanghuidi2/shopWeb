@@ -23,3 +23,12 @@ a{
   font-size: 22px;
   color: #999;;
 }
+.menu{
+  height: 100%;
+}
+.el-menu{
+  width: 150px;
+}
+.el-submenu .el-menu-item{
+  min-width: 150px !important;
+}

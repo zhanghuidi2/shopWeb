@@ -18,10 +18,10 @@ export default {
         password: '15788888888',
         captcha_code: '1111'
       }
-      api.login(loginForm).then(res=>{
+      api.login(loginForm).then(res => {
         console.log(res)
       })
-      // localStorage.setItem('loginMsg', loginMsg)
+      localStorage.setItem('loginMsg', loginForm)
       this.$router.push('/overview')
     }
   }

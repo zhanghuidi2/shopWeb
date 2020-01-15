@@ -1,9 +1,9 @@
 import axios from '@/util/request.js'
 export default {
-  login(params) {
+  login (params) {
     return axios({
       method: 'get',
-      url:`/public/login`,
+      url: `/public/login`,
       params
     })
   }
