@@ -32,3 +32,7 @@ a{
 .el-submenu .el-menu-item{
   min-width: 150px !important;
 }
+.el-input__inner{
+  height: 32px !important;
+  line-height: 32px !important;
+}

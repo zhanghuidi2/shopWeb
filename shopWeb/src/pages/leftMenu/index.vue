@@ -74,7 +74,7 @@ export default {
           path: '/setting',
           name: '系统设置',
           icon: 'el-icon-setting'
-        },
+        }
       ]
     }
   },

@@ -41,7 +41,7 @@ const router = new Router({
           path: '/setting',
           name: 'setting',
           component: () => import('@/pages/setting/index')
-        },
+        }
       ]
     },
     {
