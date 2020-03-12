@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view v-if="!$route.meta.cache"></router-view>
+    <keep-alive v-else>
+      <router-view></router-view>
+    </keep-alive>
     <div class="loading" v-if="loadingTag">
       <img src="./assets/images/common/loading.gif" alt="">
     </div>

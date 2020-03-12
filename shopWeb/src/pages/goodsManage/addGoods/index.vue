@@ -12,9 +12,8 @@ export default {
   },
   methods: {
     // 下载文件
-    download() {
-      const xhr = new XMLHttpRequest()
-      
+    download () {
+      // const xhr = new XMLHttpRequest()
     }
   }
 }

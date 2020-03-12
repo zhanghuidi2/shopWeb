@@ -14,7 +14,8 @@ const member = {
     {
       path: '/member-manage/member-tag',
       name: 'memberTag',
-      component: memberTag
+      component: memberTag,
+      meta: { cache: true }
     }
   ]
 }

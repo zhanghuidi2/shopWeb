@@ -63,7 +63,7 @@ export default {
     },
     // 导出
     onExport () {
-      console.log('导出', 'window.location.href')
+      console.log('导出', 'window.location')
     }
   }
 }
