@@ -12,7 +12,7 @@ import '@/assets/css/common.css'
 export default{
   name: 'App',
   computed: {
-    loadingTag() {
+    loadingTag () {
       return this.$store.state.common.loadingTag
     }
   }
