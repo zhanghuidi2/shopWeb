@@ -7,7 +7,7 @@ export default function request (options) {
     contentType: 'application/json;charset=UTF-8',
     format: false // 是否qs序列化
   }
-  options = {...setting, ...options}
+  options = Object.assign(setting, options)
   console.log(process.env.BASE_API)
   console.log(options.url)
   return new Promise((resolve, reject) => {

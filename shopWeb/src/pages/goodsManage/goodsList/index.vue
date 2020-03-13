@@ -43,6 +43,10 @@ export default {
       ]
     }
   },
+  created () {
+    // 触发vuex,拿到数据
+    this.$store.dispatch('getGoods')
+  },
   methods: {
     handleSizeChange (val) {
       console.log(val)

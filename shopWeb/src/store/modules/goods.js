@@ -1,23 +1,7 @@
+import axios from 'axios'
 const goods = {
   state: {
-    goodsList: [
-      {
-        value: '001',
-        label: '黄金糕'
-      }, {
-        value: '002',
-        label: '双皮奶'
-      }, {
-        value: '003',
-        label: '蚵仔煎'
-      }, {
-        value: '004',
-        label: '龙须面'
-      }, {
-        value: '005',
-        label: '北京烤鸭'
-      }
-    ],
+    goodsList: [],
     classList: [
       {
         value: '01',
@@ -64,12 +48,19 @@ const goods = {
   mutations: {
     GOODS_LIST (state, list) {
       state.goodsList = list
+      console.log(list)
     }
   },
   actions: {
-    getGoods () {
+    getGoods ({commit}) {
       // 请求200的时候,如果使用new promise以后可以在dispach的时候拿到then
-      // commit('GOODS_LIST', data.data || [])
+      axios.get('static/data.json')
+        .then((response) => {
+          console.log(response)
+          commit('GOODS_LIST', response.data.goodsList || [])
+        }).catch(function (error) {
+          console.log(error)
+        })
     }
   }
 }
