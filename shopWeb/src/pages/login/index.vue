@@ -3,6 +3,7 @@
     <div class="login-header"></div>
     <div class="login-bkg">
       <div class="rowup">
+        <h3 class="item">常用的异步数据放到vuex里</h3>
         <div class="item">1- 文件名字一定要用驼峰</div>
         <div class="item">2- js变量用驼峰</div>
         <div class="item">3- css用‘-’连接类名</div>
