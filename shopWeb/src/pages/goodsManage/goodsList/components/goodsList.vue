@@ -1,6 +1,10 @@
 <template>
   <div class="list">
     <el-table
+      v-loading="loading"
+      element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.3)"
       ref="multipleTable"
       :data="tableData"
       tooltip-effect="dark"
@@ -64,8 +68,13 @@ export default {
   },
   data () {
     return {
-
+      loading: true
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
   },
   methods: {
     // table的表头
